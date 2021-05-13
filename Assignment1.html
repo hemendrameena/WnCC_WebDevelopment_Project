@@ -1,11 +1,14 @@
+<!--to do change percent to view port-->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Problem1
-        </title>
-        <style>
-            large {
+
+<head>
+    <title>
+        Problem1
+    </title>
+    <style>
+        large {
                 font-size: x-large;
             }
 
@@ -29,28 +32,122 @@
             }
 
             body{
-            	padding: 0;
-            	margin: 0;
+                padding: 0;
+                margin: 0;
+                background-color: #FFFFFF;
+            }
+
+            #table1{
+                float: left;
+                background-color: #4E387E;
+                width: 100%;
+                color: white;
+            }
+
+            #table2{
+                width:100%; 
+                border:1px solid black;
+            }
+
+            #table3{
+                width:100%; 
+                border:1px solid black;
+            }
+
+            #blink_text{
+                border:1px solid black;
+                color: red
+            }
+
+            #table3_1{
+                width:50%;
+                border:1px solid black;
+            }
+
+            #table3_2{
+                width:50%;
+                border:1px solid black;
             }
 
         </style>
-    </head>
-    
+</head>
+
 <body>
-    
-    <table style="float: left;background-color: #4E387E;width: 100%;">
+    <script>
+            var currTheme = "l";
+            function changeTheme() {
+                if(currTheme == "l"){
+                    setDark_theme();
+                }
+                
+                else{
+                    setLight_theme();
+                }
+            }
+
+
+            function setDark_theme() {
+                document.body.style.backgroundColor = "#262626";
+                document.getElementById('table1').style.color = "#8c8c8c"
+                document.body.style.color = "green";
+                document.getElementById('table1').style.backgroundColor = "#000099";
+                document.getElementById('table2').style.borderColor = "#009933";
+                document.getElementById('table3').style.borderColor = "#009933";
+                document.getElementById('blink_text').style.borderColor = "#009933";
+                document.getElementById('table3_1').style.borderColor = "#009933";
+                document.getElementById('table3_2').style.borderColor = "#009933";
+
+                //changing background of input box
+                document.getElementById('uname').style.backgroundColor = "#bfbfbf";
+                document.getElementById('pword').style.backgroundColor = "#bfbfbf";
+
+                //changing status of current theme to dark
+                currTheme = "d";
+            }
+
+            function setLight_theme() {
+                //body style change
+                document.body.style.backgroundColor = "#FFFFFF";
+                document.body.style.color = "black";
+
+                //tabke borders and text change
+                document.getElementById('table1').style.color = "#FFFFFF";
+                document.getElementById('table1').style.backgroundColor = "#4E387E";
+                document.getElementById('table2').style.borderColor = "black";
+                document.getElementById('table3').style.borderColor = "black";
+                document.getElementById('blink_text').style.borderColor = "black";
+                document.getElementById('table3_1').style.borderColor = "black";
+                document.getElementById('table3_2').style.borderColor = "black";
+                //changing background of input box
+                document.getElementById('uname').style.backgroundColor = "#FFFFFF";
+                document.getElementById('pword').style.backgroundColor = "#FFFFFF";
+
+                //changing status of current theme to light
+                currTheme = "l";
+            }
+        </script>
+    <br>
+    <br>
+    <button type="button" onclick="changeTheme()">Change Theme</button>
+    <br>
+    <br>
+    <table id="table1">
         <tr>
             <th style="width: 10%;">
                 <img src="https://bit.ly/3rATbWr" alt="DigiCert Seal" width="100" height="40" style="background-color: white;">
             </th>
-            <td style="text-align:center;color:white;font-size: xx-large;width: 50%;">
+            <td style="text-align:center;font-size: xx-large;width: 50%;">
                 COMPUTER CENTER
             </td>
             <td style="width: 40%;">
                 <table style="width: 100%;">
                     <tr>
-                        <td style="text-align: left;color: white;"><label for="uname"><large>L</large>DAP-ID:</label></td>
-                        <td style="text-align: left;color: white;"><label for="pword"><large>P</large>ASSWORD:</label></td>
+                        <td style="text-align: left;"><label for="uname">
+                                <large>L</large>DAP-ID:
+                            </label></td>
+                        <td style="text-align: left;"><label for="pword">
+                                <large>P</large>ASSWORD:
+                            </label></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -62,19 +159,21 @@
             </td>
         </tr>
     </table>
-    <table style="width:100%; border:1px solid black ;">
+    <table id="table2">
         <tr>
-            <th style="border:1px solid black;color: red">
+            <th id="blink_text">
                 <p class="blink">### No planned downtime ###</p>
             </th>
         </tr>
     </table>
-    <table cellspacing="3px"style="width:100%; border:1px solid black ;">
+    <table cellspacing="3px" id="table3">
         <tr>
-            <td style="width:50%;border:1px solid black ";>
+            <td id = "table3_1" ;>
                 <br>
                 <p style="color:red;text-align: left;">
-                    <b><large>B</large>EWARE OF <large>P</large>HISHING <large>A</large>TTACKS:</b>
+                    <b>
+                        <large>B</large>EWARE OF <large>P</large>HISHING <large>A</large>TTACKS:
+                    </b>
                 </p>
                 <p style="text-align: left;">
                     - Do not give your <b>LDAP USERID & PASSWORD</b> to anyone.<br>
@@ -90,7 +189,9 @@
                     <b>- Computer Center never asks you for such information.</b><br>
                 </p>
                 <p style="color:blue;text-align: left;">
-                    <b><large>E</large>XAMPLE OF <large>P</large>HISHING <large>E</large>MAIL:</b>
+                    <b>
+                        <large>E</large>XAMPLE OF <large>P</large>HISHING <large>E</large>MAIL:
+                    </b>
                     <br>
                 </p>
                 <p style="color:#808080;text-align: left;font-size: small;">
@@ -107,9 +208,11 @@
                     <br><br>
                 </p>
             </td>
-            <td style="width:50%;border:1px solid black ";>
+            <td id = "table3_2" ;>
                 <p style="color:red;text-align: left;">
-                    <b><large>O</large>NLINE <large>IT A</large>GREEMENT<large>/P</large>OLICY:</b>
+                    <b>
+                        <large>O</large>NLINE <large>IT A</large>GREEMENT<large>/P</large>OLICY:
+                    </b>
                 </p>
                 <p style="text-align: left;">
                     - All new students, staff & faculty members must read and accept the<br>
@@ -123,7 +226,9 @@
                     <a style="color:red" href="https://www.cc.iitb.ac.in/page/itaccesspolicy">HERE</a>
                 </p>
                 <p style="color:blue;text-align: left;">
-                    <b><large>S</large>OME <large>U</large>SEFUL <large>L</large>INKS:</b>
+                    <b>
+                        <large>S</large>OME <large>U</large>SEFUL <large>L</large>INKS:
+                    </b>
                     <br>
                 </p>
                 <p style="text-align: left; color: rgb(161, 160, 160)">
@@ -133,7 +238,9 @@
                     - <a style="color: blue;" href="https://help-cc.iitb.ac.in/">Report A Problem</a><br>
                 </p>
                 <p style="color:blue;text-align: left;">
-                    <b><large>CC'</large>S <large>H</large>ELP<large>D</large>ESK:</b>
+                    <b>
+                        <large>CC'</large>S <large>H</large>ELP<large>D</large>ESK:
+                    </b>
                     <br>
                 </p>
                 <p style="text-align: left;">
@@ -146,8 +253,7 @@
                 </p>
             </td>
         </tr>
-        
     </table>
 </body>
-</html>
 
+</html>
