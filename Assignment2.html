@@ -208,6 +208,37 @@
             cursor: pointer;
         }
 
+        .mobile {
+            display: none;
+        }
+
+        #ldap_m {
+            width: 97vw;
+            margin-left: 1vw;
+            height: 5vh;
+            border: 2px solid black;
+        }
+
+        #password_m {
+            width: 97vw;
+            height: 5vh;
+            margin-left: 1vw;
+            border: 2px solid black;
+        }
+
+        #label_id_m {
+            margin-top: 2vw;
+            font-size: 5vw;
+        }
+
+        #label_p_m {
+            margin: 0vw;
+            font-size: 5vw;
+        }
+
+        #button3 {
+            font-size: 8vw;
+        }
 
         @media screen and (max-width: 768px) {
             body {
@@ -246,18 +277,113 @@
 
         }
 
+        @media screen and (max-width: 480px) {
+
+            .switch {
+                width: 15vw;
+                height: 6vw;
+                margin-top: 3vw;
+            }
+
+            .slider {
+                border-radius: 0vw;
+                border-top-left-radius: 30% 90%;
+                border-top-right-radius: 30% 90%;
+                border-bottom-left-radius: 30% 90%;
+                border-bottom-right-radius: 30% 90%;
+            }
+
+            .slider::before {
+                height: 5.2vw;
+                width: 5.2vw;
+                left: 0.2vw;
+                bottom: 0.4vw;
+            }
+
+            input:checked + .slider:before {
+                -webkit-transform: translateX(9.35vw);
+                -ms-transform: translateX(9.35vw);
+                transform: translateX(9.35vw);
+            }
+
+            .mobile{
+                display: block;
+            }
+
+            #image {
+                display: none;
+            }
+
+            #table3 {
+                display: none;
+            }
+
+            #table2 {
+                display: none;
+            }
+
+            #c_center {
+                width: 100vw;
+                font-size: 7vw;
+                margin: 0vw;
+                padding-top: 2vh;
+                padding-bottom: 2vh;
+            }
+
+            .tablet{
+                display: none;
+            }
+
+            #table1 {
+                width: 100vw;
+                margin: 0vw;
+                text-align: center; 
+                background-color: #fcde67;
+            }
+
+            body {
+                background-color: #5bccf6;
+            }
+
+
+
+
+        }
+
     </style>
 
     <script>
-        var currTheme = "l";
+        var currTheme_d = "l";
+        var currTheme_t = "l";
+        var currTheme_m = "l";
 
             function changeTheme(device) {
-                if(currTheme == "l"){
-                    setDark_theme(device);
+                if(device == 1){
+                    if(currTheme_d == "l"){
+                        setDark_theme(device);
+                    }
+                    
+                    else{
+                        setLight_theme(device);
+                    }
                 }
-                
+                else if(device==2){
+                    if(currTheme_t == "l"){
+                        setDark_theme(device);
+                    }
+                    
+                    else{
+                        setLight_theme(device);
+                    }
+                }
                 else{
-                    setLight_theme(device);
+                    if(currTheme_m == "l"){
+                        setDark_theme(device);
+                    }
+                    
+                    else{
+                        setLight_theme(device);
+                    }
                 }
             }
 
@@ -284,7 +410,16 @@
                 // document.getElementById('password_m').style.backgroundColor = "#bfbfbf";
 
                 //changing status of current theme to dark
-                currTheme = "d";
+                if(device==1){
+                    currTheme_d = 'd';
+                }
+                else if(device==2){
+                    currTheme_t = 'd';
+                }
+                else{
+                    currTheme_m = 'd';
+                }
+
             }
 
             function setLight_theme(device) {
@@ -292,10 +427,18 @@
                 if (device==1){
                     document.body.style.backgroundColor = "#FFFFFF";
                     document.getElementById('table1').style.backgroundColor = "#4E387E";
+                    currTheme_d = 'l';
                 }
-                else {
+                else if (device==2) {
                     document.body.style.backgroundColor = "#fef9f8";
                     document.getElementById('table1').style.backgroundColor = "#ef9273";
+                    currTheme_t = 'l';
+                }
+
+                else {
+                    document.body.style.backgroundColor = "#5bccf6";
+                    document.getElementById('table1').style.backgroundColor = "#fcde67";
+                    currTheme_m = 'l';
                 }
 
                 document.body.style.color = "black";
@@ -314,9 +457,6 @@
                 document.getElementById('password_t').style.backgroundColor = "#FFFFFF";
                 // document.getElementById('ldap_m').style.backgroundColor = "#FFFFFF";
                 // document.getElementById('password_m').style.backgroundColor = "#FFFFFF";
-
-                //changing status of current theme to light
-                currTheme = "l";
             }
 
             function check_roll(device) {
@@ -355,7 +495,7 @@
                 }
                 
                 var d = new Date();
-                var logout = "<input type='reset' onclick='log_Out()' style='cursor:pointer; width:8vw; height:3.38vw; font-size:2vw;' value='LogOut'>"
+                var logout = "<input type='reset' onclick='log_Out()' style='cursor:pointer; width:12vw; height:4vw; font-size:2vw;' value='LogOut'>"
                 var br = '<br>';
 
                 document.body.innerHTML = br + br + username + br+ br+ d +br+ br+ logout;
@@ -405,17 +545,42 @@
                     <span class="slider"></span>
             </label>
         </div>
+
     </div>
 
     <!-- for the tablet part -->
     <form id="form_t" class="tablet">
+
         <label for="ldap2" id="label"><span style="font-size: 1.2vw">L</span>DAP-ID: </label>
         <input type="text" id="ldap_t">
-
         <label for="password2" id="label2"><span style="font-size: 1.2vw">P</span>ASSWORD:</label>
         <input type="password" id="password_t">
 
         <button type="button" id = "button2" onclick="check_roll(2)">Login</button>
+    </form>
+
+    <!-- for the mobile part -->
+    <form id="form_m" class="mobile">
+        <!-- for mobile change theme -->
+        <div class="mobile" style="text-align: center;">
+            <label class="switch">
+                    <input type="checkbox" class="smallerCheckbox" onclick="changeTheme(3)">
+                    <span class="slider"></span>
+            </label>
+        </div>
+        <br>
+        <label for="ldap3" id="label_id_m"><span style="font-size: 7vw">L</span>DAP-ID: </label>
+        <br>
+        <input type="text" id="ldap_m">
+
+        <br>
+        <label for="password2" id="label_p_m"><span style="font-size: 7vw">P</span>ASSWORD:</label>
+        <br>
+        <input type="password" id="password_m">
+        <br>
+        <br>
+
+        <button type="button" id = "button3" onclick="check_roll(3)">Login</button>
     </form>
 
     <!-- for the blinking part -->
