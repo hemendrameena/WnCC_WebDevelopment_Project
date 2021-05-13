@@ -1,0 +1,532 @@
+<!--to do change table3 and change the toogle back to px and finally add media queries-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Internet IITB
+    </title>
+    <style>
+        table, th, td {
+            padding: 3px;
+        }
+
+        p.blink{
+            display: inline-block;
+            animation-duration: 1500ms;
+            animation-name: blink;
+            animation-iteration-count: infinite;
+            color: red;
+            font-size: 1vw;
+            margin: 0vw;
+        }
+
+        @keyframes blink{
+            from{
+                opacity: 1;
+            }
+            to{
+                opacity: 0;
+            }
+        }
+
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: #FFFFFF;
+            font-size: 0.9vw;
+        }
+
+        #table1{
+            float: left;
+            margin-bottom: 0.1vw;
+            background-color: #4E387E;
+            width: 100vw;
+            color: white;
+        }
+
+        #image {
+            background-color: #FFFFFF;
+            width: 7vw;
+            height: 3vw;
+            margin-left: 2vw;
+            margin-top: 0.7vw;
+            margin-bottom: 0.1vw;
+            border-bottom-left-radius: 30% 90%;
+            border-bottom-right-radius: 30% 90%;
+            border-top-left-radius: 30% 90%;
+            border-top-right-radius: 30% 90%;
+        }
+
+        #c_center {
+            display: inline-block;
+            font-size: 2vw;
+            position: relative;
+            margin-top: 2vh;
+            margin-bottom: 1.2vh;
+            margin-left: 22vw;
+
+        }
+
+        #form_d {
+            display: inline-block;
+            margin-left: 12vw;
+        }
+
+        #label2 {
+            margin-left: 8vw; 
+        }
+
+
+        /*for the input boxes*/
+        input[type=text], input[type=password] {
+            margin-top: 0.5vh;
+            margin-right: 1.5vw;
+            width: 10vw;
+            height: 1.13vw;
+        }
+
+        /*for login button*/
+        #button1 {
+            font-size: 1vw;
+            width: 5vw;
+            height: auto;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1vw;
+            cursor: pointer;
+        }
+
+        #table2{
+            width:100vw; 
+            border:0.056vw solid black;
+            text-align: center;
+            padding: 0.1vw;
+        }
+
+        #table3{ 
+            width:100vw; 
+            border:0.056vw solid black;
+            margin: 0.1vw;
+            padding: 0vh;
+            padding-bottom: 0vh;
+        }
+
+        #blink_text{
+            border:0.056vw solid black;
+            color: red;
+            margin: 0vw;
+        }
+
+        #table3_1{
+            border:0.056vw solid black;
+            width: 50vw;
+            text-align: left;
+        }
+
+        #table3_2{
+            border:0.056vw solid black;
+            width: 50vw;
+            text-align: left;
+        }
+
+        /*For the switch theme change button*/
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 3.4vw;
+            height: 1.89vw;
+            margin-bottom: 0.2vw;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 1vw;
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 1.61vw;
+            width: 1.61vw;
+            left: 0.145vw;
+            bottom: 0.135vw;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #4fc74f;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(1.45vw);
+            -ms-transform: translateX(1.45vw);
+            transform: translateX(1.45vw);
+        }
+
+        input.smallerCheckbox {
+            visibility: hidden;
+        }
+
+        #ldap2 {
+            font-size: 0.1vw;
+        }
+
+        /*Media Queries*/
+
+        .tablet {
+            display: none;
+        }
+
+        #button2 {
+            font-size: 1vw;
+            width: 5vw;
+            height: auto;
+            margin-left: 2vw;
+            margin-bottom: 0.5vw;
+            padding-top: 0.5vw;
+            padding-bottom: 0.15vw;
+            text-align: center;
+            display: inline-block;
+            font-size: 1vw;
+            cursor: pointer;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            body {
+                background-color: #fef9f8;
+                font-size: 1.1vw;
+            }
+
+            #table1 {
+                background-color: #ef9273;
+            }
+
+            #c_center {
+                font-size: 3vw;
+            }
+
+            #form_d {
+                display: none;
+            }
+
+            .tablet {
+                display: block;
+            }
+
+            #table3_1{
+                width: 100vw;
+                text-align: center;
+                position: relative;
+            }
+            #table3_2{
+                display: none;
+            }
+
+            .desktop {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+    <script>
+        var currTheme = "l";
+
+            function changeTheme(device) {
+                if(currTheme == "l"){
+                    setDark_theme(device);
+                }
+                
+                else{
+                    setLight_theme(device);
+                }
+            }
+
+
+            function setDark_theme(device) {
+                document.body.style.backgroundColor = "#000000";
+                document.body.style.color = "#d17d0f";
+
+                document.getElementById('table1').style.color = "#bf4c17";
+                document.getElementById('table1').style.backgroundColor = "#232626";
+
+                document.getElementById('table2').style.borderColor = "#009933";
+                document.getElementById('table3').style.borderColor = "#009933";
+                document.getElementById('blink_text').style.borderColor = "#009933";
+                document.getElementById('table3_1').style.borderColor = "#009933";
+                document.getElementById('table3_2').style.borderColor = "#009933";
+
+                //changing background of input box
+                document.getElementById('ldap_d').style.backgroundColor = "#bfbfbf";
+                document.getElementById('password_d').style.backgroundColor = "#bfbfbf";
+                document.getElementById('ldap_t').style.backgroundColor = "#bfbfbf";
+                document.getElementById('password_t').style.backgroundColor = "#bfbfbf";
+                // document.getElementById('ldap_m').style.backgroundColor = "#bfbfbf";
+                // document.getElementById('password_m').style.backgroundColor = "#bfbfbf";
+
+                //changing status of current theme to dark
+                currTheme = "d";
+            }
+
+            function setLight_theme(device) {
+                //body style change
+                if (device==1){
+                    document.body.style.backgroundColor = "#FFFFFF";
+                    document.getElementById('table1').style.backgroundColor = "#4E387E";
+                }
+                else {
+                    document.body.style.backgroundColor = "#fef9f8";
+                    document.getElementById('table1').style.backgroundColor = "#ef9273";
+                }
+
+                document.body.style.color = "black";
+                //tabke borders and text change
+                document.getElementById('table1').style.color = "#FFFFFF";
+        
+                document.getElementById('table2').style.borderColor = "black";
+                document.getElementById('table3').style.borderColor = "black";
+                document.getElementById('blink_text').style.borderColor = "black";
+                document.getElementById('table3_1').style.borderColor = "black";
+                document.getElementById('table3_2').style.borderColor = "black";
+                //changing background of input box
+                document.getElementById('ldap_d').style.backgroundColor = "#FFFFFF";
+                document.getElementById('password_d').style.backgroundColor = "#FFFFFF";
+                document.getElementById('ldap_t').style.backgroundColor = "#FFFFFF";
+                document.getElementById('password_t').style.backgroundColor = "#FFFFFF";
+                // document.getElementById('ldap_m').style.backgroundColor = "#FFFFFF";
+                // document.getElementById('password_m').style.backgroundColor = "#FFFFFF";
+
+                //changing status of current theme to light
+                currTheme = "l";
+            }
+
+            function check_roll(device) {
+
+                var roll_num;
+                if(device == 1){
+                    roll_num = document.getElementById('ldap_d').value;
+                }
+                else if(device == 2){
+                    roll_num = document.getElementById('ldap_t').value;
+                }
+                else {
+                    roll_num = document.getElementById('ldap_m').value;
+                }
+
+
+                if(200000000<=roll_num && roll_num<=202000000) {
+                    makeLogin(device)
+                }
+                else{
+                    alert('Roll Number not in Range');
+                }
+            }
+            // to change html when login
+            function makeLogin(device) {
+
+                var username;
+                if(device == 1){
+                    username = 'Roll Number - '+document.getElementById('ldap_d').value;
+                }
+                else if(device == 2){
+                    username = 'Roll Number - '+document.getElementById('ldap_t').value;
+                }
+                else {
+                    username = 'Roll Number - '+document.getElementById('ldap_m').value;
+                }
+                
+                var d = new Date();
+                var logout = "<input type='reset' onclick='log_Out()' style='cursor:pointer; width:8vw; height:3.38vw; font-size:2vw;' value='LogOut'>"
+                var br = '<br>';
+
+                document.body.innerHTML = br + br + username + br+ br+ d +br+ br+ logout;
+
+                document.body.style.textAlign = 'center';
+                document.body.style.fontSize = '3vw';
+
+            }
+            // to logout(reload) of the site
+            function log_Out() {
+                location.reload();
+            }
+        </script>
+</head>
+
+<body>
+    <div id="table1">
+        <!-- for the image -->
+        <span>
+            <img src="https://bit.ly/3rATbWr" id="image" alt="DigiCert Seal">
+        </span>
+        <!-- for writing computer center -->
+        <span id="c_center">
+            COMPUTER CENTER
+        </span>
+        <!-- for the input boxes -->
+        <form id="form_d">
+            <label for="ldap" id="label1"><span style="font-size: 1.2vw">L</span>DAP-ID: </label>
+            <label for="password" id="label2"><span style="font-size: 1.2vw">P</span>ASSWORD:</label>
+            <br>
+            <input type="text" id="ldap_d">
+            <input type="password" id="password_d">
+            <button type="button" id = "button1" onclick="check_roll(1)">Login</button>
+        </form>
+        <!-- for the deskop change theme button -->
+        <div class="desktop">
+            <label class="switch" style="margin-left: 3.8vw; float: center">
+                    <input type="checkbox" class="smallerCheckbox" onclick="changeTheme(1)">
+                    <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- for tablet theme change button -->
+        <div class="tablet">
+            <label class="switch" style="margin-left: 3.8vw; float: center">
+                    <input type="checkbox" class="smallerCheckbox" onclick="changeTheme(2)">
+                    <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- for the tablet part -->
+    <form id="form_t" class="tablet">
+        <label for="ldap2" id="label"><span style="font-size: 1.2vw">L</span>DAP-ID: </label>
+        <input type="text" id="ldap_t">
+
+        <label for="password2" id="label2"><span style="font-size: 1.2vw">P</span>ASSWORD:</label>
+        <input type="password" id="password_t">
+
+        <button type="button" id = "button2" onclick="check_roll(2)">Login</button>
+    </form>
+
+    <!-- for the blinking part -->
+    <table id="table2">
+        <tr>
+            <th id="blink_text" style="padding:1vw;">
+                <p class="blink">### No planned downtime ###</p>
+            </th>
+        </tr>
+    </table>
+    <!-- for the information part -->
+    <table id="table3">
+        <tr>
+            <td id = "table3_1" ;>
+                <p style="margin-top: 2.5vw; color:red;">
+                <b>
+                    <span style="font-size: 1.2vw">B</span>EWARE OF: 
+                    <span style="font-size: 1.2vw">P</span>HISHING 
+                    <span style="font-size: 1.2vw">A</span>TTACKS:
+                </b>
+            </p>
+            <p>
+                - Do not give your <b>LDAP USERID & PASSWORD</b> to anyone.<br>
+                - Do not enter LDAP login information in any pop up window.<br>
+                - Do not reply to any mail asking your login information for any<br>
+                reason.<br>
+                - Do not enter your LDAP login information on any unknown website.<br>
+                - Phishing is a fraudulent attempt, usually made through email seeking<br>
+                your userid, password and personal information.<br>
+                - If you receive any such email, Please report here immediately.<br>
+                - Immediately change your passwords if you have accidentally revealed<br>
+                your credentials.<br>
+                <b>- Computer Center never asks you for such information.</b><br>
+            </p>
+            <p style="color:blue;">
+                <span style="font-size: 1.2vw"><b>E</b></span>XAMPLE OF
+                <span style="font-size: 1.2vw"><b>P</b></span>HISHING
+                <span style="font-size: 1.2vw"><b>E</b></span>MAIL:
+            </p>
+            <p style="color:#808080;font-size: 0.7vw;">
+                From: support@iitb.ac.in<br>
+                Sent: Thu, Mar 08, 2012<br>
+                Subject: UPGRADE EMAIL ACCOUNT<br>
+                We are currently upgrading our Server for our Account Holders. In order to upgrade your account, you need<br>
+                to assist us by sending the information below or else your Account might be lost.<br>
+                Provide the below information :<br>
+                User Name :<br>
+                Pass Word :<br>
+                Regards,<br>
+                ADMIN, IIT Bombay<br>
+                <br><br>
+            </p>
+            </td>
+            <td id = "table3_2" ;>
+                <p style="color:red;">
+                <b>
+                    <span style="font-size: 1.2vw"><b>O</b></span>NLINE
+                    <span style="font-size: 1.2vw"><b>IT A</b></span>GREEMENT
+                    <span style="font-size: 1.2vw"><b>P</b></span>OLICY:
+                </b>
+            </p>
+            <p >
+                - All new students, staff & faculty members must read and accept the<br>
+                online IT agreement/policy.<br>
+                - IT services are made available to users only upon acceptance of the<br>
+                IT undertaking.<br>
+                - The IT policy applies to all users of the Institute with or without<br>
+                his knowledge about IT policy and violations will be dealt with strictly.<br>
+                <br>
+                <b>- 
+                    <span style="font-size: 1.2vw">T</span>O 
+                    LEARN MORE AND SIGN ONLINE 
+                    <span style="font-size: 1.2vw">IT 
+                    P</span>OLICY, CLICK 
+                </b>
+                <a style="color:red" href="https://www.cc.iitb.ac.in/page/itaccesspolicy">HERE</a>
+            </p>
+             <p style="color:blue;">
+                <b>
+                    <span style="font-size: 1.2vw">S</span>OME 
+                    <span style="font-size: 1.2vw">U</span>SEFUL 
+                    <span style="font-size: 1.2vw">L</span>INKS:
+                </b>
+                <br>
+            </p>
+            <p style="color: rgb(161, 160, 160)">
+                - <a style="color: blue;" href="https://www.cc.iitb.ac.in/#gettingstarted-tabpane">Getting Started</a> (Faculty, Staff & Student)<br>
+                - <a style="color: blue;" href="https://gpo.iitb.ac.in/">GPO-Webmail</a><br>
+                - <a style="color: blue;" href="ftp://ftp.iitb.ac.in/">FTP-Portal</a><br>
+                - <a style="color: blue;" href="https://help-cc.iitb.ac.in/">Report A Problem</a><br>
+            </p>
+
+            <p style="color:blue;">
+                <b>
+                    <span style="font-size: 1.2vw">CC'</span>S
+                    <span style="font-size: 1.2vw">H</span>ELP
+                    <span style="font-size: 1.2vw">D</span>ESK:
+                </b>
+                <br>
+            </p>
+            <p>
+                - You can visit CC's HelpDesk between<br>
+                11:00 am - 1:00 pm & 3:30 pm - 5:30 pm<br>
+                <pre>        At</pre>
+                Ground Floor,<br>
+                New Computer Center Building,<br>
+                IIT Bombay.<br>
+            </p>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
