@@ -240,7 +240,7 @@
             font-size: 8vw;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 1200px) {
             body {
                 background-color: #fef9f8;
                 font-size: 1.1vw;
@@ -495,14 +495,13 @@
                 }
                 
                 var d = new Date();
-                var logout = "<input type='reset' onclick='log_Out()' style='cursor:pointer; width:12vw; height:4vw; font-size:2vw;' value='LogOut'>"
+                var logout = "<input type='reset' onclick='log_Out()' style='cursor:pointer; width:15vw; height:7vw; font-size:4vw; background-color: green' value='LogOut'>"
                 var br = '<br>';
 
-                document.body.innerHTML = br + br + username + br+ br+ d +br+ br+ logout;
+                document.body.innerHTML = username + br+ br+ d +br+ br+ logout;
 
                 document.body.style.textAlign = 'center';
-                document.body.style.fontSize = '3vw';
-
+                document.body.style.fontSize = '7vw';
             }
             // to logout(reload) of the site
             function log_Out() {
