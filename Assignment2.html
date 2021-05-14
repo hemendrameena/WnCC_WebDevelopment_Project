@@ -357,6 +357,42 @@
         var currTheme_t = "l";
         var currTheme_m = "l";
 
+            function theme_window_resize() {
+                var curr_width = document.documentElement.clientWidth;
+
+                if(curr_width<=1200&&480<=curr_width){
+                    if(currTheme_t=="l"){
+                        currTheme_t="d";
+                    }
+                    else{
+                        currTheme_t="l";
+                    }
+                    changeTheme(2);
+                }
+
+                else if(curr_width<=480){
+                    if(currTheme_m=="l"){
+                        currTheme_m="d";
+                    }
+                    else{
+                        currTheme_m="l";
+                    }
+                    changeTheme(3);
+                }
+
+                else{
+                    if(currTheme_d=="l"){
+                        currTheme_d="d";
+                    }
+                    else{
+                        currTheme_d="l";
+                    }
+                    changeTheme(1);
+                }
+            }
+
+            window.addEventListener("resize", theme_window_resize);
+
             function changeTheme(device) {
                 if(device == 1){
                     if(currTheme_d == "l"){
@@ -495,7 +531,7 @@
                 }
                 
                 var d = new Date();
-                var logout = "<input type='reset' onclick='log_Out()' style='cursor:pointer; width:15vw; height:7vw; font-size:4vw; background-color: green' value='LogOut'>"
+                var logout = "<input type='reset' onclick='log_Out()' style='cursor:pointer; width:17vw; height:7vw; font-size:4vw; background-color: green' value='LogOut'>"
                 var br = '<br>';
 
                 document.body.innerHTML = username + br+ br+ d +br+ br+ logout;
