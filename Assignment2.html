@@ -17,7 +17,7 @@
 
         p.blink{
             display: inline-block;
-            animation-duration: 1500ms;
+            animation-duration: 4s;
             animation-name: blink;
             animation-iteration-count: infinite;
             color: red;
@@ -26,11 +26,14 @@
         }
 
         @keyframes blink{
-            from{
+            0%{
                 opacity: 1;
             }
-            to{
+            50%{
                 opacity: 0;
+            }
+            100%{ 
+                opacity: 1;
             }
         }
 
@@ -60,6 +63,13 @@
             border-bottom-right-radius: 30% 90%;
             border-top-left-radius: 30% 90%;
             border-top-right-radius: 30% 90%;
+            transition: 1s;
+        }
+
+        #image:hover {
+            -webkit-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+            transform: scale(1.5);
         }
 
         #c_center {
@@ -69,6 +79,7 @@
             margin-top: 2vh;
             margin-bottom: 1.2vh;
             margin-left: 22vw;
+            transition: transform 1s;
 
         }
 
@@ -157,7 +168,7 @@
             border-radius: 1vw;
         }
 
-        .slider::before {
+        .slider:before {
             position: absolute;
             content: "";
             height: 1.61vw;
@@ -168,6 +179,13 @@
             -webkit-transition: .4s;
             transition: .4s;
             border-radius: 50%;
+        }
+
+        .slider:hover {
+            background-color: #eb8334;
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            -transform: scale(1.2);
         }
 
         input:checked + .slider {
@@ -249,7 +267,6 @@
             #table1 {
                 background-color: #ef9273;
             }
-
             #c_center {
                 font-size: 3vw;
             }
@@ -260,6 +277,16 @@
 
             .tablet {
                 display: block;
+            }
+
+            #table3{
+                transition: transform 1s;
+            }
+
+            #table3:hover{
+                -webkit-transform: scale(1.3);
+                -ms-transform: scale(1.3);
+                -transform: scale(1.3);
             }
 
             #table3_1{
@@ -277,7 +304,7 @@
 
         }
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 479px) {
 
             .switch {
                 width: 15vw;
@@ -357,10 +384,14 @@
         var currTheme_t = "l";
         var currTheme_m = "l";
 
+        // to save previous width to later use for transition in screen size to save the details of theme of previous size of screen
+        var prev_width = document.documentElement.clientWidth;;
+
             function theme_window_resize() {
                 var curr_width = document.documentElement.clientWidth;
 
                 if(curr_width<=1200&&480<=curr_width){
+
                     if(currTheme_t=="l"){
                         currTheme_t="d";
                     }
@@ -370,17 +401,21 @@
                     changeTheme(2);
                 }
 
-                else if(curr_width<=480){
+                else if(curr_width<480){
+
                     if(currTheme_m=="l"){
                         currTheme_m="d";
                     }
+
                     else{
                         currTheme_m="l";
+
                     }
                     changeTheme(3);
                 }
 
                 else{
+
                     if(currTheme_d=="l"){
                         currTheme_d="d";
                     }
@@ -568,7 +603,7 @@
         <!-- for the deskop change theme button -->
         <div class="desktop">
             <label class="switch" style="margin-left: 3.8vw; float: center">
-                    <input type="checkbox" class="smallerCheckbox" onclick="changeTheme(1)">
+                    <input type="checkbox" id="checkbox_d" class="smallerCheckbox" onclick="changeTheme(1)">
                     <span class="slider"></span>
             </label>
         </div>
@@ -576,7 +611,7 @@
         <!-- for tablet theme change button -->
         <div class="tablet">
             <label class="switch" style="margin-left: 3.8vw; float: center">
-                    <input type="checkbox" class="smallerCheckbox" onclick="changeTheme(2)">
+                    <input type="checkbox" id="checkbox_t" class="smallerCheckbox" onclick="changeTheme(2)">
                     <span class="slider"></span>
             </label>
         </div>
@@ -599,7 +634,7 @@
         <!-- for mobile change theme -->
         <div class="mobile" style="text-align: center;">
             <label class="switch">
-                    <input type="checkbox" class="smallerCheckbox" onclick="changeTheme(3)">
+                    <input type="checkbox" id="checkbox_m" class="smallerCheckbox" onclick="changeTheme(3)">
                     <span class="slider"></span>
             </label>
         </div>
