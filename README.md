@@ -12,10 +12,13 @@ Currently in this Repo there are two Assignment given in the WnCC_SoC project 'I
 6. Django
 
 ## Assignment 1 
+Submitted on April 11, 2021.
 In this I have replicated the static page of Internet IITB Site, i.e. internet.iitb.ac.in
 
 ## Assignment 2
+Submitted on May 19, 2021.
 In this I have improved the previous Assignment and make the site responsive, added night mode feature to it and some other features.
 
 ## Assignment 3
+Submitted on June 10, 2021. 
 In this assignment I have made a website contating Recipes of different foods of India. <a href="https://recipeapp-abb54.web.app/home">This</a> is the link for the website made in this assignment.
